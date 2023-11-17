@@ -17,9 +17,9 @@ import java.util.stream.Collectors;
 public class GlobalExceptionHandler {
 
     @ResponseBody
-    @ExceptionHandler(value = {Exception.class})
+    @ExceptionHandler(value = {java.lang.Exception.class})
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public ErrorDTO handleException(Exception exception) {
+    public ErrorDTO handleException(java.lang.Exception exception) {
         log.error(exception.getMessage(), exception);
         return ErrorDTO.builder()
                 .code(HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase())
@@ -28,7 +28,7 @@ public class GlobalExceptionHandler {
     }
 
     @ResponseBody
-    @ExceptionHandler(value = {Exception.class})
+    @ExceptionHandler(value = {ValidationException.class})
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ErrorDTO handleException(ValidationException validationException) {
         ErrorDTO errorDTO;
