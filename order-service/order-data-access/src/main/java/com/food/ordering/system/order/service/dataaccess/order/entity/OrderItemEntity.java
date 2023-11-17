@@ -25,7 +25,7 @@ public class OrderItemEntity {
     @JoinColumn(name = "ORDER_ID")
     private OrderEntity order;
 
-    private UUID prodductId;
+    private UUID productId;
     private BigDecimal price;
     private Integer quantity;
     private BigDecimal subTotal;
