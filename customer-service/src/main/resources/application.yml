@@ -1,0 +1,25 @@
+server:
+  port: 8184
+spring:
+  jpa:
+    open-in-view: false
+    show-sql: true
+    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL9Dialect
+  datasource:
+    url: jdbc:postgresql://localhost:55000/postgres?currentSchema=customer&binaryTransfer=true&reWriteBatchedInserts=true&stringtype=unspecified
+    username: postgres
+    password: postgres
+    diver-class-name: org.postgresql.Driver
+    platform: postgres
+# Below props removed in spring boot 2.7.x
+#    schema: classpath:/init-schema.sql
+#    data: classpath:init-data.sql
+#    initialization-mode: always
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:init-schema.sql
+      data-locations: classpath:init-data.sql
