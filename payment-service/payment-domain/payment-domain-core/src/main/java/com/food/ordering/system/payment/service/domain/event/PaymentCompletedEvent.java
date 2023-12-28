@@ -16,8 +16,4 @@ public class PaymentCompletedEvent extends PaymentEvent {
         this.paymentCompletedEventDomainEventPublisher = paymentCompletedEventDomainEventPublisher;
     }
 
-    @Override
-    public void fire() {
-        paymentCompletedEventDomainEventPublisher.publish(this);
-    }
 }
