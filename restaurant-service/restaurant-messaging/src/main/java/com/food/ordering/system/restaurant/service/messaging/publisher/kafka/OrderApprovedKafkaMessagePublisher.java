@@ -38,14 +38,14 @@ public class OrderApprovedKafkaMessagePublisher implements OrderApprovedMessageP
                     restaurantMessagingDataMapper
                             .orderApprovedEventToRestaurantApprovalResponseModel(orderApprovedEvent);
 
-            kafkaProducer.send(restaurantServiceConfigData.getRestaurantApprovalResponseTopicName(),
-                    orderId,
-                    restaurantApprovalResponseAvroModel,
-                    kafkaMessageHelper.getKafkaCallback(restaurantServiceConfigData
-                            .getRestaurantApprovalResponseTopicName(),
-                            restaurantApprovalResponseAvroModel,
-                            orderId,
-                            "RestaurantApprovalResponseAvroModel"));
+//            kafkaProducer.send(restaurantServiceConfigData.getRestaurantApprovalResponseTopicName(),
+//                    orderId,
+//                    restaurantApprovalResponseAvroModel,
+//                    kafkaMessageHelper.getKafkaCallback(restaurantServiceConfigData
+//                            .getRestaurantApprovalResponseTopicName(),
+//                            restaurantApprovalResponseAvroModel,
+//                            orderId,
+//                            "RestaurantApprovalResponseAvroModel"));
             log.info("RestaurantApprovalResponseAvroModel sent to kafka at: {}", System.nanoTime());
         } catch(Exception e) {
             log.error("Error while sending RestaurantApprovalResponseAvroModel message" +

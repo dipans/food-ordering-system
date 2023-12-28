@@ -8,15 +8,16 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-public interface PaymentOutboxReppository {
+public interface PaymentOutboxRepository {
     OrderPaymentOutboxMessage save(OrderPaymentOutboxMessage orderPaymentOutboxMessage);
+
     Optional<List<OrderPaymentOutboxMessage>> findByTypeAndOutboxStatusAndSagaStatus(String type,
                                                                                      OutboxStatus outboxStatus,
-                                                                                     SagaStatus... sagaStatuses);
+                                                                                     SagaStatus... sagaStatus);
     Optional<OrderPaymentOutboxMessage> findByTypeAndSagaIdAndSagaStatus(String type,
                                                                          UUID sagaId,
-                                                                         SagaStatus... sagaStatuses);
-    void deleteByTypeAndOutboxStatusAndSagaStatus(String tyep,
-                                                 OutboxStatus outboxStatus,
-                                                 SagaStatus... sagaStatuses);
+                                                                         SagaStatus... sagaStatus);
+    void deleteByTypeAndOutboxStatusAndSagaStatus(String type,
+                                                  OutboxStatus outboxStatus,
+                                                  SagaStatus... sagaStatus);
 }

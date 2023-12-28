@@ -36,8 +36,8 @@ public class OrderTestConfiguration {
     }
 
     @Bean
-    public PaymentOutboxReppository paymentOutboxReppository() {
-        return Mockito.mock(PaymentOutboxReppository.class);
+    public PaymentOutboxRepository paymentOutboxRepository() {
+        return Mockito.mock(PaymentOutboxRepository.class);
     }
 
     @Bean
