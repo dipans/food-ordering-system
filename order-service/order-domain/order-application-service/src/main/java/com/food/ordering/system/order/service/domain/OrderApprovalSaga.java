@@ -121,7 +121,8 @@ public class OrderApprovalSaga implements SagaStep<RestaurantApprovalResponse>  
                                                                      OrderStatus orderStatus,
                                                                      SagaStatus sagaStatus) {
         Optional<OrderPaymentOutboxMessage> orderPaymentOutboxMessageResponse =
-                paymentOutboxHelper.getPaymentOutboxMessageBySagaIdAndSagaStatus(UUID.fromString(sagaId), sagaStatus);
+                paymentOutboxHelper.getPaymentOutboxMessageBySagaIdAndSagaStatus(UUID.fromString(sagaId),
+                        SagaStatus.PROCESSING);
 
         if (orderPaymentOutboxMessageResponse.isEmpty()) {
             throw new OrderDomainException("Payment outbox message could not be found in " +
